@@ -1,0 +1,16 @@
+{
+  "name": "minimalista",
+  "version": "1.0.0",
+  "description": "Minimalistic Node.js framework. Mostly based on Node.js standard library.",
+  "type": "module",
+  "scripts": {
+    "test": "node --no-warnings --test **/*.test.js",
+    "lint": "tsc -p jsconfig.json"
+  },
+  "author": "Thomas Jaggi (https://responsive.ch)",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/node": "^20.10.0",
+    "typescript": "^5.3.3"
+  }
+}
