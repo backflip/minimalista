@@ -1,3 +1,4 @@
+import { isDevMode } from "../../lib/dev.js";
 import render from "../lib/render.js";
 
 /**
@@ -6,9 +7,13 @@ import render from "../lib/render.js";
  */
 export default async function handler(req, res) {
   const html = render({
-    title: "Hello World",
-    content: `<p>Hello World</p>`,
+    title: "Index",
+    content: `<h1>Info</h1>
+    <ul>
+      <li><a href="/info">Info overview page</a></li>
+    </ul>`,
   });
 
+  res.setHeader("Cache-Control", isDevMode ? `no-cache` : `max-age=86400`);
   res.end(html);
 }
