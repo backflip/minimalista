@@ -13,11 +13,19 @@ export default function render({
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <title>${title}</title>
-        <link rel="stylesheet" href="/public/styles.css?v=${assetVersion}">
+        <link rel="stylesheet" href="/public/styles/main.css?v=${assetVersion}">
       </head>
       <body>
         ${content}
         ${isDevMode ? createLiveReloadInject() : ``}
+        <script type="importmap">
+          {
+            "imports": {
+              "component": "/public/scripts/component.js?v=${assetVersion}"
+            }
+          }
+        </script>
+        <script src="/public/scripts/main.js?v=${assetVersion}" type="module"></script>
       </body>
     </html>`;
 }
