@@ -11,7 +11,9 @@ export default async function handler(req, res) {
     content: `<h1>Info</h1>
     <ul>
       <li><a href="/info">Info overview page</a></li>
-    </ul>`,
+    </ul>
+    <h2>Client-side component</h2>
+    <my-component></my-component>`,
   });
 
   res.setHeader("Cache-Control", isDevMode ? `no-cache` : `max-age=86400`);
