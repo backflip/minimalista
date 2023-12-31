@@ -1,7 +1,7 @@
 {
   "name": "minimalista",
   "version": "1.0.0",
-  "description": "Minimalistic Node.js framework. Mostly based on Node.js standard library.",
+  "description": "Minimalistic Node.js framework. No dependencies, based on Node.js standard library.",
   "type": "module",
   "scripts": {
     "test": "node --no-warnings --test **/*.test.js",

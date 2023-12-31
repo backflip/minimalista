@@ -1,6 +1,6 @@
 # Minimalista
 
-Minimalistic Node.js web framework. Mostly based on standard library.
+Minimalistic Node.js web framework. No dependencies, based on Node.js standard library.
 
 ## Install
 
