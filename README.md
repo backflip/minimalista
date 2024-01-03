@@ -15,7 +15,7 @@ See [example](./example).
 ```js
 import { dirname, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
-import { App } from "backflip/minimalista/lib/app.js";
+import { App } from "@responsive.ch/minimalista/lib/app.js";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 
