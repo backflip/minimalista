@@ -1,5 +1,14 @@
+import { dirname, resolve } from "node:path";
+import { fileURLToPath } from "node:url";
 import { isDevMode } from "../../lib/dev.js";
-import { createLiveReloadInject } from "../../lib/livereload.js";
+import { renderLiveReloadInject } from "../../lib/livereload.js";
+import { renderSvgSprite } from "../../lib/svg.js";
+
+const __dirname = dirname(fileURLToPath(import.meta.url));
+
+const publicDir = resolve(__dirname, "../public");
+const svgSprite = renderSvgSprite({ publicDir });
+const liveReloadInject = renderLiveReloadInject();
 
 export default function render({
   title,
@@ -17,7 +26,8 @@ export default function render({
       </head>
       <body>
         ${content}
-        ${isDevMode ? createLiveReloadInject() : ``}
+				<div hidden>${svgSprite}</div>
+        ${isDevMode ? liveReloadInject : ``}
         <script type="importmap">
           {
             "imports": {

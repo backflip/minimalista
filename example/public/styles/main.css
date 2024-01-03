@@ -1,3 +1,13 @@
 body {
   font-family: sans-serif;
 }
+
+.back {
+  display: inline-flex;
+  align-items: center;
+}
+
+.menu {
+  display: flex;
+  align-items: center;
+}

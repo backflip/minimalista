@@ -1,4 +1,5 @@
 import { isDevMode } from "../../../lib/dev.js";
+import { renderSvg } from "../../../lib/svg.js";
 import render from "../../lib/render.js";
 
 /**
@@ -8,8 +9,17 @@ import render from "../../lib/render.js";
 export default async function handler(req, res) {
   const html = render({
     title: "Info",
-    content: `<a href="/">← Home</a>
+    content: `<a href="/" class="back">${renderSvg({
+      name: "home",
+      width: 16,
+      height: 16,
+    })} Home</a>
     <h1>Info</h1>
+    <h2 class="menu">${renderSvg({
+      name: "menu",
+      width: 32,
+      height: 32,
+    })} Menu</h2>
     <ul>
       <li><a href="/info/my-slug">Info sub page</a></li>
       <li><a href="/info/my-slug-2">Info sub page 2</a></li>

@@ -1,0 +1,15 @@
+{
+  "name": "minimalista-example",
+  "type": "module",
+  "scripts": {
+    "build": "node ./build/svg-sprite.js",
+    "dev": "node --watch --no-warnings ./index.js --dev",
+    "start": "node ./index.js"
+  },
+  "dependencies": {
+    "@responsive.ch/minimalista": "../"
+  },
+  "devDependencies": {
+    "svg-sprite": "^2.0.2"
+  }
+}
