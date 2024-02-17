@@ -3,6 +3,7 @@ import { fileURLToPath } from "node:url";
 import { isDevMode } from "../../lib/dev.js";
 import { renderLiveReloadInject } from "../../lib/livereload.js";
 import { renderSvgSprite } from "../../lib/svg.js";
+import html from "../public/scripts/html.js";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 
@@ -16,26 +17,33 @@ export default function render({
   lang = "en",
   assetVersion = "1",
 }) {
-  return `<!DOCTYPE html>
+  return html`<!DOCTYPE html>
     <html lang="${lang}">
       <head>
-        <meta charset="utf-8">
+        <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <title>${title}</title>
-        <link rel="stylesheet" href="/public/styles/main.css?v=${assetVersion}">
+        <link
+          rel="stylesheet"
+          href="/public/styles/main.css?v=${assetVersion}"
+        />
       </head>
       <body>
         ${content}
-				<div hidden>${svgSprite}</div>
+        <div hidden>${svgSprite}</div>
         ${isDevMode ? liveReloadInject : ``}
         <script type="importmap">
           {
             "imports": {
-              "component": "/public/scripts/component.js?v=${assetVersion}"
+              "/public/scripts/html.js": "/public/scripts/html.js?v=${assetVersion}",
+              "/public/scripts/component.js": "/public/scripts/component.js?v=${assetVersion}"
             }
           }
         </script>
-        <script src="/public/scripts/main.js?v=${assetVersion}" type="module"></script>
+        <script
+          src="/public/scripts/main.js?v=${assetVersion}"
+          type="module"
+        ></script>
       </body>
     </html>`;
 }

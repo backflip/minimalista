@@ -1,3 +1,5 @@
+import html from "./html.js";
+
 export default class Component extends HTMLElement {
   async connectedCallback() {
     const shadow = this.attachShadow({ mode: "open" });
@@ -10,7 +12,7 @@ export default class Component extends HTMLElement {
       body: JSON.stringify({ hello: "world" }),
     }).then((response) => response.json());
 
-    shadow.innerHTML = `<pre>${JSON.stringify(response, null, 2)}</pre>`;
+    shadow.innerHTML = html`<pre>${JSON.stringify(response, null, 2)}</pre>`;
   }
 }
 
