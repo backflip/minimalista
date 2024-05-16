@@ -7,6 +7,11 @@ const __dirname = dirname(fileURLToPath(import.meta.url));
 const app = new App({
   staticDir: resolve(__dirname, "public"),
   routesDir: resolve(__dirname, "routes"),
+  // port: process.env.PORT || 3000,
+  // transformNormalizedPath: (normalizePath) => {
+  //   // Handle country prefix
+  //   return normalizePath.replace(/^\/(ch|de|at)/, "/[country]");
+  // },
 });
 
 app.start();
