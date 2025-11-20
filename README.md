@@ -38,6 +38,7 @@ const app = new App({
       next();
     },
   ],
+  onError: (err) => console.error(err),
 });
 
 app.start();

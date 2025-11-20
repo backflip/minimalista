@@ -35,6 +35,7 @@ const app = new App({
       next();
     },
   ],
+  onError: (err) => console.error("custom", err),
 });
 
 app.start();
